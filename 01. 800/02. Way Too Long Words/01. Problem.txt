@@ -18,13 +18,14 @@ Output
 Print n lines. The i-th line should contain the result of replacing of the i-th word from the input data.
 
 Examples
-InputCopy
+Input
 4
 word
 localization
 internationalization
 pneumonoultramicroscopicsilicovolcanoconiosis
-OutputCopy
+
+Output
 word
 l10n
 i18n
