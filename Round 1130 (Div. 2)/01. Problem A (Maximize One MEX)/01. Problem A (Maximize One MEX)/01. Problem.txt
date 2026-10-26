@@ -1,0 +1,98 @@
+A. Maximize One MEX
+time limit per test1 second
+memory limit per test256 megabytes
+
+Given an array a
+ of length n
+, which is a permutation of the integers 0,1,…,n−1
+, you can perform the following operation at most once:
+
+Choose two distinct indices i
+ and j
+ (i≠j
+), and swap the values of ai
+ and aj
+.
+After performing the operation, define fi=mex(a1,a2,…,ai)
+. mex(c)
+ denotes the minimum excluded (MEX)∗
+ of the collection c
+.
+
+Given an integer k
+, find two indices to use in the operation above so as to maximize the k
+-th largest value among f1,f2,…,fn
+. If no operation is needed, output −1
+.
+
+If there are several valid answers, you may output any of them.
+
+∗
+The minimum excluded (MEX) of a collection of integers c1,c2,…,ck
+ is defined as the smallest non-negative integer x
+ which does not occur in the collection c
+.
+
+Input
+Each test contains multiple test cases. The first line contains the number of test cases t
+ (1≤t≤50
+). The description of the test cases follows.
+
+For each test case, the first line contains two integers n
+ and k
+ (2≤n≤100
+, 1≤k≤n
+), where n
+ is the number of elements in the array a
+ and k
+ is the rank of the value to be maximized (with k=1
+ corresponding to the largest value).
+
+The next line contains n
+ integers: a1,a2,…,an
+. It is guaranteed that each of the values 0,1,…,n−1
+ appears exactly once in the array a
+.
+
+It is guaranteed that the sum of n
+ over all test cases does not exceed 100
+.
+
+Output
+For each test case, output a single line that contains two indices used in the operation to maximize the k
+-th largest value among f1,f2,…,fn
+. If no operation is needed, output −1
+.
+
+Example
+Input
+3
+5 1
+0 1 2 3 4
+3 2
+2 0 1
+5 2
+0 2 1 4 3
+Output
+-1
+1 3
+4 5
+Note
+In the first test case, no operation is needed; the 1
+st largest value among f1,f2,…,f5
+ is f5=5
+. Actually, if we perform the swap operation, no matter which two indices we choose, f5
+ is always the largest one, with value 5
+.
+
+In the second test case, after swapping a1
+ and a3
+, we get the array [1,0,2]
+, and f1=0,f2=2,f3=3
+; the 2
+nd largest value among f1,f2,f3
+ is f2=2
+.
+
+
+solve this problem in C++
