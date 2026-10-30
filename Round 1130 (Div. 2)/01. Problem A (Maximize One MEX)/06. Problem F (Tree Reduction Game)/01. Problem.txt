@@ -1,0 +1,149 @@
+F. Tree Reduction Game
+time limit per test2 seconds
+memory limit per test512 megabytes
+
+Alice and Bob are playing a game on a tree with n
+ vertices. Alice moves first, and then they take turns.
+
+At any moment, the tree has a designated root. Suppose the current root is u
+. On their turn, the current player must choose a child v
+ of u
+ and perform exactly one of the following operations:
+
+Make v
+ the new root.
+Delete the entire subtree∗
+ rooted at v
+.
+Here, parent-child relationships are determined with respect to the current root.
+
+During the entire game, each vertex can become the root at most once.
+
+If a player has no valid move on their turn, that player loses.
+
+Before the game begins, as compensation for moving second, Bob may choose any vertex as the initial root.
+
+Given the tree, determine the winner assuming both players play optimally. If Bob can win, output all vertices that he can choose as the initial root to guarantee a victory, in increasing order.
+
+∗
+The subtree rooted at vertex v
+ is the set of all vertices that pass through v
+ on a simple path to the root (including v
+ itself).
+
+Input
+Each test contains multiple test cases. The first line contains the number of test cases t
+ (1≤t≤104
+). The description of the test cases follows.
+
+The first line of each test case contains a single integer n
+ (2≤n≤5⋅105
+), the number of vertices in the tree.
+
+Each of the next n−1
+ lines contains two integers u
+ and v
+ (1≤u,v≤n
+, u≠v
+), denoting an edge between vertices u
+ and v
+. It is guaranteed that the given graph is a tree.
+
+It is guaranteed that the sum of n
+ over all test cases does not exceed 5⋅105
+.
+
+Output
+If Alice wins, print Alice.
+Otherwise, print Bob on the first line. On the second line, print an integer k
+, the number of vertices that Bob can choose as the initial root to guarantee his victory. On the third line, print k
+ distinct integers v1,v2,…,vk
+ in increasing order, denoting all such vertices.
+Example
+InputCopy
+6
+2
+1 2
+3
+1 2
+2 3
+5
+1 2
+1 3
+1 4
+1 5
+5
+1 2
+2 3
+3 4
+4 5
+7
+1 2
+2 3
+1 4
+4 5
+1 6
+6 7
+7
+1 2
+1 3
+2 4
+2 5
+3 6
+3 7
+OutputCopy
+Alice
+Bob
+1
+2
+Bob
+1
+1
+Bob
+2
+2 4
+Bob
+3
+2 4 6
+Bob
+1
+1
+Note
+In the first test case, regardless of which vertex Bob chooses as the initial root, Alice can remove the only child subtree on her first move. Bob then has no legal move, so Alice wins.
+
+In the fifth test case, vertices 2
+, 4
+, and 6
+ are winning choices for Bob. We explain vertex 2
+; the other two cases are symmetric.
+
+If Bob chooses vertex 2
+ as the initial root, its children are 1
+ and 3
+.
+
+If Alice changes the root from 2
+ to 1
+, Bob can change the root from 1
+ to 4
+ (or 6
+).
+If Alice deletes the subtree rooted at 1
+, Bob deletes the subtree rooted at 3
+, leaving Alice with no legal move.
+If Alice changes the root from 2
+ to 3
+, Bob deletes the subtree rooted at 2
+, again leaving Alice with no legal move.
+If Alice deletes the subtree rooted at 3
+, Bob deletes the subtree rooted at 1
+.
+Thus Bob can force a win when the initial root is 2
+. By symmetry, the same holds for 4
+ and 6
+. If Bob chooses any of 1
+, 3
+, 5
+, or 7
+, Alice has a winning strategy. Therefore the answer is 2,4,6
+.
